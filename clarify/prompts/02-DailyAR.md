@@ -9,9 +9,9 @@
 
 > Triage my Inbox messages from the **last 7 days** that have **no category** yet. Apply the same **U / AR / CA / DO-NOW / ARCHIVE** rules as P1 (Eisenhower Matrix for U vs AR, GTD 2-minute rule for DO-NOW, deny-list for ARCHIVE).
 >
-> Urgent-sender list: *(paste from 00-Setup.md)*.
-> General allow-list: *(paste)*.
-> Deny-list: *(paste)*.
+> Urgent-sender list: *(paste from `config/sender-lists.md`)*.
+> General allow-list: *(paste from `config/sender-lists.md`)*.
+> Deny-list: *(paste from `config/sender-lists.md`)*.
 >
 > Output the four copy-pasteable blocks (**U / AR / CA / ARCHIVE**) plus a **DO-NOW** list. Skip anything already tagged U, AR, or CA — those are handled by P3.
 >

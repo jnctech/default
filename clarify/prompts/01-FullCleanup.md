@@ -2,7 +2,7 @@
 
 **When:** once, before steady-state begins.
 **Scope:** entire Inbox (not subfolders, not Archive).
-**Pre-reqs:** `00-Setup.md` complete; sender lists populated.
+**Pre-reqs:** `00-Setup.md` complete; `../config/sender-lists.md` populated.
 
 ---
 
@@ -14,17 +14,17 @@
 >
 > - **U** — Urgent **and** important. Time-critical action on me. Signals (any one is sufficient):
 >   - Deadline is **today or tomorrow**, or already past.
->   - Sender is on my **urgent-sender list**: *(paste from 00-Setup.md)*.
+>   - Sender is on my **urgent-sender list**: *(paste from `config/sender-lists.md`)*.
 >   - Words like "ASAP", "blocker", "outage", "P1", "P2", "before EOD", "urgent", "need now".
 >   - Linked ticket / work-item is severity 1/2 or flagged Critical.
 > - **AR** — Action Required. Important but not time-critical. I must do, decide, deliver, approve, reply with substance, or own a follow-through, but the deadline is more than ~48h out or unspecified. Signals:
 >   - On **To:** (not only Cc/Bcc), **or** @mentioned in the body.
->   - Sender on the general allow-list: *(paste)*.
+>   - Sender on the general allow-list: *(paste from `config/sender-lists.md`)*.
 >   - Ask verbs / deadlines: "please", "can you", "need", "by <date>", "approve", "review", "sign", "deliver", "owner: <me>".
 >   - Unanswered question directed at me with no reply from me.
 > - **CA** — Completed Action. I previously owned an action and the thread shows it is done (I delivered, a closure / thank-you exists, or the linked ticket/task is closed). Only mark CA on positive evidence in-thread.
 > - **DO-NOW** — would take <2 minutes (per GTD). Reply or act immediately, *then* archive. Do not categorize.
-> - **ARCHIVE** — none of the above (FYI, newsletters, automated noise, resolved threads I never owned, Cc-only without ask). Apply my **deny-list**: *(paste)*.
+> - **ARCHIVE** — none of the above (FYI, newsletters, automated noise, resolved threads I never owned, Cc-only without ask). Apply my **deny-list**: *(paste from `config/sender-lists.md`)*.
 >
 > Output a table: `Row | Date | From | Subject | Classification | One-line reason | Deadline (if any)`.
 >

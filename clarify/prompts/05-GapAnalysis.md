@@ -3,7 +3,7 @@
 **When:** weekly (Friday), or whenever inbox feels "off".
 **Scope:** last 30 days of Inbox **and** Archive.
 
-This prompt is a **meta-prompt**: its output updates `00-Setup.md` and `Status-Source-Registry.md`, not Outlook directly.
+This prompt is a **meta-prompt**: its output updates `config/sender-lists.md` and `config/Status-Source-Registry.md`, not Outlook directly.
 
 ---
 
@@ -17,7 +17,7 @@ This prompt is a **meta-prompt**: its output updates `00-Setup.md` and `Status-S
 > - A sender pattern (domain, DL, or person) that recurs as actionable but is not on my allow-list.
 > - References to a system (URL, ticket prefix, tool name) that is **not yet** in my Status Source Registry.
 >
-> Output four sections:
+> Output five sections:
 >
 > 1. **Missed AR / U candidates** — `Date | From | Subject | Why it should have been categorized | Suggested category (U/AR)`.
 > 2. **Suggested urgent-sender additions** with frequency counts and example subjects.
@@ -29,6 +29,7 @@ This prompt is a **meta-prompt**: its output updates `00-Setup.md` and `Status-S
 
 ## Apply step
 
-1. Update `00-Setup.md`: paste new senders into the relevant lists.
-2. Update `Status-Source-Registry.md`: add new rows for systems that emerged in the audit.
+1. Update `config/sender-lists.md`: paste new senders into the relevant lists.
+2. Update `config/Status-Source-Registry.md`: add new rows for systems that emerged in the audit.
 3. For the **Missed AR / U candidates** list, manually categorize each in Outlook so next week's P2 starts clean.
+4. Optionally, log a one-line summary in `journal/` (counts, key gaps closed) so you can spot drift over weeks.

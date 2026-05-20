@@ -1,6 +1,6 @@
 # 00 — Setup (one-time)
 
-Foundation for the Inbox Zero prompt pack. Complete this file before running P1.
+Foundation for the Clarify prompt pack. Complete this file before running P1.
 
 ## Methodological basis
 
@@ -29,37 +29,21 @@ Default: `Archive` folder under the mailbox root. If you use a different folder 
 
 > Archive folder: **\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
 
-## Step 3 — Capture sender lists
+## Step 3 — Populate sender lists
 
-Paste real values; these get injected into every prompt.
+Sender lists live in **`../config/sender-lists.md`** — open that file and paste in real values for urgent senders, the general allow-list, and the deny-list. Every prompt pulls from there.
 
-### Urgent-sender list (any mail from these is at least **U** until proven otherwise)
+## Step 4 — Populate the Status Source Registry
 
-- Manager: `firstname.lastname@company.com`
-- Skip-level: `…`
-- Exec assistants you support: `…`
-- On-call / paging routes: `pager@…`, `alerts@…`
-- ServiceNow notifier for P1/P2 incidents: `…`
+The registry lives in **`../config/Status-Source-Registry.md`**. Paste in real URLs / site IDs / ticket prefixes for each system P3 should consult (Planner, SharePoint, ServiceNow, IRIS, Teams, OneDrive, ADO, Jira, Sent Items). At minimum, leave the **Outlook — Sent Items** row in place; it is always-on.
 
-### General allow-list (default to **AR** unless content says otherwise)
-
-- Direct team DLs: `…`
-- Project DLs you own work in: `…`
-- Key cross-functional partners: `…`
-
-### Deny-list (default to **ARCHIVE** unless body explicitly addresses me)
-
-- Newsletters and digests: `…`
-- Monitoring noise that is not on-call routed: `…`
-- FYI-only DLs: `…`
-
-## Step 4 — Confirm operating cadence
+## Step 5 — Confirm operating cadence
 
 - **Today (one-time):** Setup → P1 → P3 → P4.
 - **Each weekday morning (≤5 min):** P2 → P3 → P4.
-- **Each Friday:** P5, then update this file and the registry.
+- **Each Friday:** P5, then update `config/sender-lists.md` and `config/Status-Source-Registry.md`.
 
-## Step 5 — Conventions used by every prompt
+## Step 6 — Conventions used by every prompt
 
 - 2-minute rule applies first: if reply/action takes <2 min, do it now and archive. Do not categorize.
 - Tie-break: **U > AR > ARCHIVE**. Uncertain items flagged with `[?]`.

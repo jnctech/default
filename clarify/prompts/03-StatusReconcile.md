@@ -16,7 +16,7 @@
 >
 > Registry:
 >
-> *(paste contents of Status-Source-Registry.md)*
+> *(paste contents of `config/Status-Source-Registry.md`)*
 >
 > For each U/AR message, output a row:
 >
