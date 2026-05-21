@@ -1,0 +1,599 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 3580" preserveAspectRatio="xMidYMid meet" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <pattern id="dotGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1f2937" opacity="0.55"/>
+    </pattern>
+
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000000"/>
+      <stop offset="0.5" stop-color="#050510"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+
+    <radialGradient id="cyanGlow"  cx="0.5" cy="0.5" r="0.6"><stop offset="0" stop-color="#22d3ee" stop-opacity="0.32"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></radialGradient>
+    <radialGradient id="orangeGlow" cx="0.5" cy="0.5" r="0.6"><stop offset="0" stop-color="#f38020" stop-opacity="0.32"/><stop offset="1" stop-color="#f38020" stop-opacity="0"/></radialGradient>
+    <radialGradient id="violetGlow" cx="0.5" cy="0.5" r="0.7"><stop offset="0" stop-color="#a78bfa" stop-opacity="0.20"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></radialGradient>
+    <radialGradient id="emeraldGlow" cx="0.5" cy="0.5" r="0.7"><stop offset="0" stop-color="#34d399" stop-opacity="0.20"/><stop offset="1" stop-color="#34d399" stop-opacity="0"/></radialGradient>
+    <radialGradient id="pinkGlow"  cx="0.5" cy="0.5" r="0.7"><stop offset="0" stop-color="#f472b6" stop-opacity="0.18"/><stop offset="1" stop-color="#f472b6" stop-opacity="0"/></radialGradient>
+    <radialGradient id="slateGlow" cx="0.5" cy="0.5" r="0.7"><stop offset="0" stop-color="#64748b" stop-opacity="0.15"/><stop offset="1" stop-color="#64748b" stop-opacity="0"/></radialGradient>
+
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#020617"/></linearGradient>
+    <linearGradient id="cardGradHi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#111a2e"/><stop offset="1" stop-color="#030814"/></linearGradient>
+
+    <linearGradient id="infraZoneFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e1b4b" stop-opacity="0.45"/><stop offset="1" stop-color="#1e1b4b" stop-opacity="0.12"/></linearGradient>
+    <linearGradient id="homeZoneFill"  x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#064e3b" stop-opacity="0.40"/><stop offset="1" stop-color="#064e3b" stop-opacity="0.10"/></linearGradient>
+    <linearGradient id="iotZoneFill"   x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#831843" stop-opacity="0.35"/><stop offset="1" stop-color="#831843" stop-opacity="0.10"/></linearGradient>
+    <linearGradient id="netZoneFill"   x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f172a" stop-opacity="0.85"/><stop offset="1" stop-color="#0f172a" stop-opacity="0.50"/></linearGradient>
+
+    <linearGradient id="chipDocker" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1e3a8a" stop-opacity="0.55"/><stop offset="1" stop-color="#1e3a8a" stop-opacity="0.20"/></linearGradient>
+    <linearGradient id="chipNas"    x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#78350f" stop-opacity="0.55"/><stop offset="1" stop-color="#78350f" stop-opacity="0.20"/></linearGradient>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="4" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .micro     { font-size: 18px; letter-spacing: 0.18em; fill: #64748b; text-transform: uppercase; font-weight: 600; }
+    .eyebrow   { font-size: 22px; letter-spacing: 0.32em; fill: #94a3b8; text-transform: uppercase; font-weight: 700; }
+    .h1        { font-size: 60px; font-weight: 800; fill: #f8fafc; letter-spacing: -0.01em; }
+    .h2        { font-size: 44px; font-weight: 700; fill: #f1f5f9; letter-spacing: -0.01em; }
+    .h3        { font-size: 32px; font-weight: 700; fill: #f1f5f9; }
+    .h4        { font-size: 26px; font-weight: 700; fill: #f1f5f9; }
+    .sub       { font-size: 24px; fill: #94a3b8; }
+    .subBold   { font-size: 24px; fill: #cbd5e1; font-weight: 600; }
+    .mono      { font-family: ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo, monospace; }
+    .chiplbl   { font-size: 24px; font-weight: 600; fill: #e2e8f0; }
+    .chiplblSm { font-size: 20px; font-weight: 600; fill: #e2e8f0; }
+    .chipport  { font-size: 22px; fill: #c4b5fd; font-weight: 500; }
+    .chipportAmber { font-size: 22px; fill: #fcd34d; font-weight: 500; }
+    .chipportSm    { font-size: 18px; fill: #c4b5fd; font-weight: 500; }
+    .zoneEyebrow   { font-size: 26px; letter-spacing: 0.30em; font-weight: 800; text-transform: uppercase; }
+    .zoneCidr      { font-size: 22px; font-weight: 500; }
+    .linkLbl       { font-size: 22px; font-weight: 700; fill: #f8fafc; letter-spacing: 0.06em; }
+    .tag           { font-size: 20px; fill: #cbd5e1; }
+    .domain        { font-size: 16px; fill: #cbd5e1; font-weight: 500; }
+    .domainTgt     { font-size: 15px; fill: #fbbf24; font-weight: 600; letter-spacing: 0.02em; }
+    .authBadge     { font-size: 14px; font-weight: 700; letter-spacing: 0.05em; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1080" height="3580" fill="url(#bgGrad)"/>
+  <rect width="1080" height="3580" fill="url(#dotGrid)" opacity="0.55"/>
+
+  <!-- Header band -->
+  <text x="540" y="50" text-anchor="middle" class="eyebrow">Homelab · Network Topology · Extended</text>
+  <line x1="320" y1="68" x2="760" y2="68" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- ====================== TIER 1: INTERNET ====================== -->
+  <ellipse cx="540" cy="220" rx="380" ry="170" fill="url(#cyanGlow)"/>
+  <g transform="translate(540 220)" filter="url(#softShadow)">
+    <path d="M -210 30 Q -240 30 -240 0 Q -240 -30 -210 -30 Q -200 -72 -150 -72 Q -125 -108 -70 -108 Q -10 -118 30 -82 Q 80 -108 130 -78 Q 180 -78 195 -40 Q 235 -40 235 -8 Q 235 30 200 30 Z"
+          fill="#020a14" stroke="#22d3ee" stroke-width="2.5" opacity="0.98"/>
+    <text x="0" y="-8" text-anchor="middle" class="h1">Internet</text>
+    <text x="0" y="22" text-anchor="middle" class="sub mono">Public Internet · WAN</text>
+  </g>
+
+  <!-- Link: Internet -> Cloudflare -->
+  <line x1="540" y1="340" x2="540" y2="455" stroke="#22d3ee" stroke-width="3" stroke-dasharray="8 6" opacity="0.75"/>
+  <polygon points="540,468 528,450 552,450" fill="#22d3ee"/>
+  <g transform="translate(540 380)">
+    <rect x="-115" y="-26" width="230" height="52" rx="26" fill="#000" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="0" y="7" text-anchor="middle" class="linkLbl mono">HTTPS · 443</text>
+  </g>
+
+  <!-- ====================== TIER 2: CLOUDFLARE TUNNEL + DOMAINS ====================== -->
+  <ellipse cx="540" cy="600" rx="380" ry="160" fill="url(#orangeGlow)"/>
+  <g transform="translate(540 600)" filter="url(#softShadow)">
+    <rect x="-300" y="-110" width="600" height="220" rx="30" fill="url(#cardGradHi)" stroke="#f38020" stroke-width="2"/>
+    <g transform="translate(-220 0)">
+      <path d="M -34 24 Q -58 24 -58 2 Q -58 -20 -34 -20 Q -28 -44 0 -44 Q 28 -50 46 -22 L 70 -22 Q 84 -22 84 -6 Q 84 14 70 24 Z" fill="#fbbf24" opacity="0.95"/>
+      <path d="M -14 42 Q -34 42 -34 22 Q -34 4 -14 4 Q -8 -16 14 -16 L 80 -16 Q 96 -16 96 4 Q 96 22 80 42 Z" fill="#f38020" opacity="0.95"/>
+    </g>
+    <text x="-100" y="-22" class="h2">Cloudflare</text>
+    <text x="-100" y="22" class="h2">Tunnel</text>
+    <text x="-100" y="62" class="sub mono">cloudflared · colebungalow.com</text>
+  </g>
+
+  <!-- Domain mapping band -->
+  <g transform="translate(40 740)">
+    <rect x="0" y="0" width="1000" height="160" rx="20" fill="#08060a" stroke="#f38020" stroke-width="1" stroke-dasharray="2 6" opacity="0.85"/>
+    <text x="20" y="28" class="micro" fill="#fbbf24">External Domain Map · colebungalow.com</text>
+    <!-- 10 subdomains in 5×2 grid -->
+    <!-- Row 1 -->
+    <g transform="translate(20 44)">
+      <g transform="translate(0 0)">    <rect x="0" y="0" width="188" height="48" rx="10" fill="#1a0f06" stroke="#f38020" stroke-width="1"/>
+        <text x="10" y="20" class="domain mono">auth</text>
+        <text x="10" y="40" class="domainTgt">→ Authentik · Direct</text></g>
+      <g transform="translate(196 0)">  <rect x="0" y="0" width="188" height="48" rx="10" fill="#1a0f06" stroke="#f38020" stroke-width="1"/>
+        <text x="10" y="20" class="domain mono">portainer</text>
+        <text x="10" y="40" class="domainTgt">→ Portainer · OIDC</text></g>
+      <g transform="translate(392 0)">  <rect x="0" y="0" width="188" height="48" rx="10" fill="#1a0f06" stroke="#f38020" stroke-width="1"/>
+        <text x="10" y="20" class="domain mono">gitea</text>
+        <text x="10" y="40" class="domainTgt">→ Gitea · OIDC</text></g>
+      <g transform="translate(588 0)">  <rect x="0" y="0" width="188" height="48" rx="10" fill="#1a0f06" stroke="#f38020" stroke-width="1"/>
+        <text x="10" y="20" class="domain mono">sonarr</text>
+        <text x="10" y="40" class="domainTgt">→ Sonarr · Fwd-Auth</text></g>
+      <g transform="translate(784 0)">  <rect x="0" y="0" width="176" height="48" rx="10" fill="#1a0f06" stroke="#f38020" stroke-width="1"/>
+        <text x="10" y="20" class="domain mono">radarr</text>
+        <text x="10" y="40" class="domainTgt">→ Radarr · Fwd-Auth</text></g>
+    </g>
+    <!-- Row 2 -->
+    <g transform="translate(20 100)">
+      <g transform="translate(0 0)">    <rect x="0" y="0" width="188" height="48" rx="10" fill="#1a0f06" stroke="#f38020" stroke-width="1"/>
+        <text x="10" y="20" class="domain mono">sabnzb</text>
+        <text x="10" y="40" class="domainTgt">→ SABnzbd · Fwd-Auth</text></g>
+      <g transform="translate(196 0)">  <rect x="0" y="0" width="188" height="48" rx="10" fill="#1a0f06" stroke="#f38020" stroke-width="1"/>
+        <text x="10" y="20" class="domain mono">tautulli</text>
+        <text x="10" y="40" class="domainTgt">→ Tautulli · Fwd-Auth</text></g>
+      <g transform="translate(392 0)">  <rect x="0" y="0" width="188" height="48" rx="10" fill="#1a0f06" stroke="#f38020" stroke-width="1"/>
+        <text x="10" y="20" class="domain mono">overseerr</text>
+        <text x="10" y="40" class="domainTgt">→ Overseerr · Fwd-Auth</text></g>
+      <g transform="translate(588 0)">  <rect x="0" y="0" width="188" height="48" rx="10" fill="#1a0f06" stroke="#f38020" stroke-width="1"/>
+        <text x="10" y="20" class="domain mono">pihole</text>
+        <text x="10" y="40" class="domainTgt">→ Pi-hole · Fwd-Auth</text></g>
+      <g transform="translate(784 0)">  <rect x="0" y="0" width="176" height="48" rx="10" fill="#1a0f06" stroke="#f38020" stroke-width="1"/>
+        <text x="10" y="20" class="domain mono">slay</text>
+        <text x="10" y="40" class="domainTgt">→ Homework · Fwd-Auth</text></g>
+    </g>
+  </g>
+
+  <!-- Link: Cloudflare -> NPM -->
+  <line x1="540" y1="900" x2="540" y2="1075" stroke="#f38020" stroke-width="3" stroke-dasharray="8 6" opacity="0.75"/>
+  <polygon points="540,1088 528,1070 552,1070" fill="#f38020"/>
+  <g transform="translate(540 970)">
+    <rect x="-150" y="-26" width="300" height="52" rx="26" fill="#000" stroke="#f38020" stroke-width="1.5"/>
+    <text x="0" y="7" text-anchor="middle" class="linkLbl">Encrypted Tunnel</text>
+  </g>
+
+  <!-- ====================== ZONE: INFRASTRUCTURE NETWORK ====================== -->
+  <ellipse cx="540" cy="1620" rx="560" ry="640" fill="url(#violetGlow)"/>
+  <g>
+    <rect x="20" y="1095" width="1040" height="1130" rx="28" fill="url(#infraZoneFill)" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="2 7"/>
+    <rect x="40" y="1073" width="640" height="48" rx="24" fill="#1e1b4b" stroke="#a78bfa" stroke-width="1.5"/>
+    <circle cx="68" cy="1097" r="7" fill="#a78bfa"/>
+    <text x="86" y="1105" class="zoneEyebrow" fill="#c4b5fd">Infrastructure Network</text>
+    <rect x="560" y="1081" width="220" height="32" rx="16" fill="#000" stroke="#a78bfa" stroke-width="1"/>
+    <text x="670" y="1103" text-anchor="middle" class="zoneCidr mono" fill="#c4b5fd">192.168.30.0/24</text>
+  </g>
+
+  <!-- Nginx Proxy Manager card -->
+  <g filter="url(#softShadow)">
+    <rect x="80" y="1180" width="920" height="220" rx="22" fill="url(#cardGradHi)" stroke="#a78bfa" stroke-width="2"/>
+    <g transform="translate(140 1240)">
+      <rect x="-30" y="-30" width="80" height="80" rx="16" fill="#0b0a1f" stroke="#a78bfa" stroke-width="1.5"/>
+      <path d="M -18 -8 L 6 -8 L 6 -16 L 22 0 L 6 16 L 6 8 L -18 8 Z" fill="#a78bfa"/>
+      <path d="M 38 32 L 14 32 L 14 40 L -2 24 L 14 8 L 14 16 L 38 16 Z" fill="#c4b5fd" opacity="0.7"/>
+    </g>
+    <text x="240" y="1240" class="h2">Nginx Proxy Manager</text>
+    <text x="240" y="1278" class="sub mono">192.168.30.28 · nginx-proxy</text>
+    <g transform="translate(240 1308)">
+      <rect x="0" y="0" width="200" height="36" rx="18" fill="#1e1b4b" stroke="#a78bfa" stroke-width="1"/>
+      <text x="100" y="24" text-anchor="middle" class="tag">Reverse Proxy</text>
+      <rect x="212" y="0" width="160" height="36" rx="18" fill="#1e1b4b" stroke="#a78bfa" stroke-width="1"/>
+      <text x="292" y="24" text-anchor="middle" class="tag">SSL / TLS</text>
+      <rect x="384" y="0" width="210" height="36" rx="18" fill="#1e1b4b" stroke="#a78bfa" stroke-width="1"/>
+      <text x="489" y="24" text-anchor="middle" class="tag">Forward Auth</text>
+    </g>
+    <text x="240" y="1378" class="micro">Cloudflared tunnel endpoint · Let's Encrypt · ACL filtering</text>
+  </g>
+
+  <!-- Distribution arrows -->
+  <g stroke="#a78bfa" stroke-width="2.5" fill="none" opacity="0.9">
+    <line x1="540" y1="1400" x2="540" y2="1440"/>
+    <path d="M 300 1470 Q 300 1440 540 1440 Q 780 1440 780 1470"/>
+    <line x1="300" y1="1470" x2="300" y2="1520"/>
+    <line x1="780" y1="1470" x2="780" y2="1520"/>
+  </g>
+  <polygon points="300,1530 290,1514 310,1514" fill="#a78bfa"/>
+  <polygon points="780,1530 770,1514 790,1514" fill="#a78bfa"/>
+  <g transform="translate(540 1460)">
+    <rect x="-130" y="-22" width="260" height="38" rx="19" fill="#000" stroke="#a78bfa" stroke-width="1"/>
+    <text x="0" y="5" text-anchor="middle" class="tag" fill="#c4b5fd">Routes traffic to services</text>
+  </g>
+
+  <!-- ============ Docker Host card (left, expanded) ============ -->
+  <g filter="url(#softShadow)">
+    <rect x="40" y="1540" width="500" height="660" rx="22" fill="url(#cardGrad)" stroke="#60a5fa" stroke-width="2"/>
+    <!-- Docker glyph -->
+    <g transform="translate(98 1596)">
+      <rect x="-30" y="-30" width="80" height="80" rx="14" fill="#0a1424" stroke="#60a5fa" stroke-width="1.5"/>
+      <rect x="-18" y="-14" width="14" height="14" fill="#60a5fa" opacity="0.95"/>
+      <rect x="0"   y="-14" width="14" height="14" fill="#60a5fa" opacity="0.95"/>
+      <rect x="18"  y="-14" width="14" height="14" fill="#60a5fa" opacity="0.95"/>
+      <rect x="-18" y="4"   width="14" height="14" fill="#60a5fa" opacity="0.7"/>
+      <rect x="0"   y="4"   width="14" height="14" fill="#60a5fa" opacity="0.7"/>
+      <rect x="-18" y="22"  width="32" height="6"  rx="3" fill="#60a5fa" opacity="0.55"/>
+    </g>
+    <text x="160" y="1592" class="h3">Docker Host</text>
+    <text x="160" y="1626" class="sub mono">192.168.30.10 · docker-vm01</text>
+    <text x="160" y="1652" class="micro">13 containers · Docker Compose</text>
+    <line x1="60" y1="1672" x2="520" y2="1672" stroke="#1e293b" stroke-width="1"/>
+
+    <!-- Primary three services from ASCII (highlighted) -->
+    <g transform="translate(60 1690)">
+      <rect x="0" y="0" width="460" height="58" rx="12" fill="url(#chipDocker)" stroke="#60a5fa" stroke-width="1.2"/>
+      <rect x="12" y="14" width="30" height="30" rx="6" fill="#0a1424" stroke="#60a5fa" stroke-width="1.2"/>
+      <circle cx="27" cy="29" r="6" fill="#60a5fa"/>
+      <text x="56" y="26" class="chiplbl">Authentik</text>
+      <text x="56" y="48" class="sub">Identity Provider</text>
+      <rect x="320" y="14" width="64" height="22" rx="11" fill="#000" stroke="#a78bfa" stroke-width="1"/>
+      <text x="352" y="29" text-anchor="middle" class="authBadge" fill="#c4b5fd">DIRECT</text>
+      <text x="450" y="40" text-anchor="end" class="chipportSm mono">:9443 :9000</text>
+    </g>
+    <g transform="translate(60 1756)">
+      <rect x="0" y="0" width="460" height="58" rx="12" fill="url(#chipDocker)" stroke="#60a5fa" stroke-width="1.2"/>
+      <rect x="12" y="14" width="30" height="30" rx="6" fill="#0a1424" stroke="#60a5fa" stroke-width="1.2"/>
+      <circle cx="32" cy="35" r="5" stroke="#60a5fa" stroke-width="1.6" fill="none"/>
+      <path d="M 22 24 L 32 24 M 27 24 L 27 30" stroke="#60a5fa" stroke-width="1.6"/>
+      <text x="56" y="26" class="chiplbl">Gitea</text>
+      <text x="56" y="48" class="sub">Git hosting · CI</text>
+      <rect x="320" y="14" width="50" height="22" rx="11" fill="#000" stroke="#a78bfa" stroke-width="1"/>
+      <text x="345" y="29" text-anchor="middle" class="authBadge" fill="#c4b5fd">OIDC</text>
+      <text x="450" y="40" text-anchor="end" class="chipportSm mono">:3000 :222</text>
+    </g>
+    <g transform="translate(60 1822)">
+      <rect x="0" y="0" width="460" height="58" rx="12" fill="url(#chipDocker)" stroke="#60a5fa" stroke-width="1.2"/>
+      <rect x="12" y="14" width="30" height="30" rx="6" fill="#0a1424" stroke="#60a5fa" stroke-width="1.2"/>
+      <circle cx="22" cy="29" r="3" fill="#60a5fa"/>
+      <circle cx="32" cy="29" r="3" fill="#60a5fa" opacity="0.7"/>
+      <text x="56" y="26" class="chiplbl">Gitea Runner</text>
+      <text x="56" y="48" class="sub">CI workers · Docker-in-Docker</text>
+      <text x="450" y="40" text-anchor="end" class="chipportSm mono">act_runner</text>
+    </g>
+
+    <!-- Divider -->
+    <line x1="60" y1="1900" x2="520" y2="1900" stroke="#1e293b" stroke-width="1"/>
+    <text x="60" y="1922" class="micro" fill="#60a5fa">Also hosts (per system docs)</text>
+
+    <!-- 2-col dense list of additional containers -->
+    <g class="mono" font-size="18" fill="#cbd5e1">
+      <!-- col 1 -->
+      <g transform="translate(60 1944)">
+        <text x="0" y="0">· Grafana</text>           <text x="220" y="0" text-anchor="end" class="chipportSm">:3001</text>
+        <text x="0" y="28">· Loki</text>             <text x="220" y="28" text-anchor="end" class="chipportSm">:3100</text>
+        <text x="0" y="56">· Promtail</text>         <text x="220" y="56" text-anchor="end" class="chipportSm">UDP :1515 :1516</text>
+        <text x="0" y="84">· Pi-hole (primary)</text><text x="220" y="84" text-anchor="end" class="chipportSm">:8080</text>
+        <text x="0" y="112">· Unbound</text>         <text x="220" y="112" text-anchor="end" class="chipportSm">recursive DNS</text>
+      </g>
+      <!-- col 2 -->
+      <g transform="translate(300 1944)">
+        <text x="0" y="0">· FamilyLink Auth</text>   <text x="220" y="0" text-anchor="end" class="chipportSm">OAuth proxy</text>
+        <text x="0" y="28">· Obsidian LiveSync</text><text x="220" y="28" text-anchor="end" class="chipportSm">CouchDB</text>
+        <text x="0" y="56">· Portainer Agent</text>  <text x="220" y="56" text-anchor="end" class="chipportSm">:9001</text>
+        <text x="0" y="84">· Dev Container</text>    <text x="220" y="84" text-anchor="end" class="chipportSm">SSH :2222</text>
+        <text x="0" y="112">· Homework (Slay)</text> <text x="220" y="112" text-anchor="end" class="chipportSm">:8181</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============ Asustor NAS card (right) ============ -->
+  <g filter="url(#softShadow)">
+    <rect x="560" y="1540" width="480" height="660" rx="22" fill="url(#cardGrad)" stroke="#fbbf24" stroke-width="2"/>
+    <g transform="translate(620 1596)">
+      <rect x="-30" y="-30" width="80" height="80" rx="14" fill="#1a1408" stroke="#fbbf24" stroke-width="1.5"/>
+      <rect x="-20" y="-18" width="60" height="12" rx="3" fill="#fbbf24" opacity="0.95"/>
+      <circle cx="32" cy="-12" r="2" fill="#0a0a14"/>
+      <rect x="-20" y="-2" width="60" height="12" rx="3" fill="#fbbf24" opacity="0.75"/>
+      <circle cx="32" cy="4" r="2" fill="#0a0a14"/>
+      <rect x="-20" y="14" width="60" height="12" rx="3" fill="#fbbf24" opacity="0.55"/>
+      <circle cx="32" cy="20" r="2" fill="#0a0a14"/>
+    </g>
+    <text x="680" y="1592" class="h3">Asustor NAS</text>
+    <text x="680" y="1626" class="sub mono">192.168.30.22 · asustor-nas</text>
+    <text x="680" y="1652" class="micro">Media services · Portainer host</text>
+    <line x1="580" y1="1672" x2="1020" y2="1672" stroke="#1e293b" stroke-width="1"/>
+
+    <!-- Portainer -->
+    <g transform="translate(580 1690)">
+      <rect x="0" y="0" width="440" height="64" rx="12" fill="url(#chipNas)" stroke="#fbbf24" stroke-width="1"/>
+      <rect x="12" y="18" width="28" height="28" rx="5" fill="#1a1408" stroke="#fbbf24" stroke-width="1.2"/>
+      <rect x="18" y="24" width="6" height="6" fill="#fbbf24"/>
+      <rect x="28" y="24" width="6" height="6" fill="#fbbf24" opacity="0.6"/>
+      <rect x="18" y="34" width="6" height="6" fill="#fbbf24" opacity="0.6"/>
+      <rect x="28" y="34" width="6" height="6" fill="#fbbf24"/>
+      <text x="56" y="40" class="chiplbl">Portainer</text>
+      <rect x="300" y="20" width="56" height="22" rx="11" fill="#000" stroke="#fbbf24" stroke-width="1"/>
+      <text x="328" y="36" text-anchor="middle" class="authBadge" fill="#fcd34d">OIDC</text>
+      <text x="426" y="40" text-anchor="end" class="chipportAmber mono">:19943</text>
+    </g>
+    <!-- Sonarr -->
+    <g transform="translate(580 1762)">
+      <rect x="0" y="0" width="440" height="64" rx="12" fill="url(#chipNas)" stroke="#fbbf24" stroke-width="1"/>
+      <rect x="12" y="18" width="28" height="28" rx="5" fill="#1a1408" stroke="#fbbf24" stroke-width="1.2"/>
+      <circle cx="26" cy="32" r="8" stroke="#fbbf24" stroke-width="1.6" fill="none"/>
+      <circle cx="26" cy="32" r="3" fill="#fbbf24"/>
+      <text x="56" y="40" class="chiplbl">Sonarr</text>
+      <rect x="280" y="20" width="80" height="22" rx="11" fill="#000" stroke="#fbbf24" stroke-width="1"/>
+      <text x="320" y="36" text-anchor="middle" class="authBadge" fill="#fcd34d">FWD-AUTH</text>
+      <text x="426" y="40" text-anchor="end" class="chipportAmber mono">:18989</text>
+    </g>
+    <!-- Radarr -->
+    <g transform="translate(580 1834)">
+      <rect x="0" y="0" width="440" height="64" rx="12" fill="url(#chipNas)" stroke="#fbbf24" stroke-width="1"/>
+      <rect x="12" y="18" width="28" height="28" rx="5" fill="#1a1408" stroke="#fbbf24" stroke-width="1.2"/>
+      <polygon points="26,22 32,32 26,42 20,32" fill="#fbbf24"/>
+      <text x="56" y="40" class="chiplbl">Radarr</text>
+      <rect x="280" y="20" width="80" height="22" rx="11" fill="#000" stroke="#fbbf24" stroke-width="1"/>
+      <text x="320" y="36" text-anchor="middle" class="authBadge" fill="#fcd34d">FWD-AUTH</text>
+      <text x="426" y="40" text-anchor="end" class="chipportAmber mono">:17878</text>
+    </g>
+    <!-- SABnzbd -->
+    <g transform="translate(580 1906)">
+      <rect x="0" y="0" width="440" height="64" rx="12" fill="url(#chipNas)" stroke="#fbbf24" stroke-width="1"/>
+      <rect x="12" y="18" width="28" height="28" rx="5" fill="#1a1408" stroke="#fbbf24" stroke-width="1.2"/>
+      <path d="M 16 38 L 22 30 L 28 36 L 36 24" stroke="#fbbf24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="56" y="40" class="chiplbl">SABnzbd</text>
+      <rect x="280" y="20" width="80" height="22" rx="11" fill="#000" stroke="#fbbf24" stroke-width="1"/>
+      <text x="320" y="36" text-anchor="middle" class="authBadge" fill="#fcd34d">FWD-AUTH</text>
+      <text x="426" y="40" text-anchor="end" class="chipportAmber mono">:38380</text>
+    </g>
+    <!-- Tautulli -->
+    <g transform="translate(580 1978)">
+      <rect x="0" y="0" width="440" height="64" rx="12" fill="url(#chipNas)" stroke="#fbbf24" stroke-width="1"/>
+      <rect x="12" y="18" width="28" height="28" rx="5" fill="#1a1408" stroke="#fbbf24" stroke-width="1.2"/>
+      <rect x="18" y="34" width="4" height="8"  fill="#fbbf24"/>
+      <rect x="24" y="28" width="4" height="14" fill="#fbbf24"/>
+      <rect x="30" y="22" width="4" height="20" fill="#fbbf24"/>
+      <text x="56" y="40" class="chiplbl">Tautulli</text>
+      <rect x="280" y="20" width="80" height="22" rx="11" fill="#000" stroke="#fbbf24" stroke-width="1"/>
+      <text x="320" y="36" text-anchor="middle" class="authBadge" fill="#fcd34d">FWD-AUTH</text>
+      <text x="426" y="40" text-anchor="end" class="chipportAmber mono">:38181</text>
+    </g>
+    <!-- Overseerr -->
+    <g transform="translate(580 2050)">
+      <rect x="0" y="0" width="440" height="64" rx="12" fill="url(#chipNas)" stroke="#fbbf24" stroke-width="1"/>
+      <rect x="12" y="18" width="28" height="28" rx="5" fill="#1a1408" stroke="#fbbf24" stroke-width="1.2"/>
+      <circle cx="26" cy="32" r="9" stroke="#fbbf24" stroke-width="1.6" fill="none"/>
+      <circle cx="26" cy="32" r="2" fill="#fbbf24"/>
+      <text x="56" y="40" class="chiplbl">Overseerr</text>
+      <rect x="280" y="20" width="80" height="22" rx="11" fill="#000" stroke="#fbbf24" stroke-width="1"/>
+      <text x="320" y="36" text-anchor="middle" class="authBadge" fill="#fcd34d">FWD-AUTH</text>
+      <text x="426" y="40" text-anchor="end" class="chipportAmber mono">:25055</text>
+    </g>
+
+    <text x="800" y="2180" text-anchor="middle" class="micro">6 services · Asustor NAS OS</text>
+  </g>
+
+  <!-- ====================== INTER-NETWORK LINK ====================== -->
+  <line x1="540" y1="2240" x2="540" y2="2360" stroke="#64748b" stroke-width="3" stroke-dasharray="2 8" opacity="0.7"/>
+  <polygon points="540,2373 528,2355 552,2355" fill="#94a3b8"/>
+  <g transform="translate(540 2295)">
+    <rect x="-180" y="-26" width="360" height="52" rx="26" fill="#000" stroke="#64748b" stroke-width="1.5"/>
+    <text x="0" y="7" text-anchor="middle" class="linkLbl" fill="#cbd5e1">Inter-network Routing</text>
+  </g>
+
+  <!-- ====================== ZONE: HOME NETWORK ====================== -->
+  <ellipse cx="540" cy="2560" rx="560" ry="230" fill="url(#emeraldGlow)"/>
+  <g>
+    <rect x="20" y="2410" width="1040" height="350" rx="28" fill="url(#homeZoneFill)" stroke="#34d399" stroke-width="1.5" stroke-dasharray="2 7"/>
+    <rect x="40" y="2388" width="540" height="48" rx="24" fill="#064e3b" stroke="#34d399" stroke-width="1.5"/>
+    <circle cx="68" cy="2412" r="7" fill="#34d399"/>
+    <text x="86" y="2420" class="zoneEyebrow" fill="#6ee7b7">Home Network</text>
+    <rect x="430" y="2396" width="220" height="32" rx="16" fill="#000" stroke="#34d399" stroke-width="1"/>
+    <text x="540" y="2418" text-anchor="middle" class="zoneCidr mono" fill="#6ee7b7">192.168.88.0/24</text>
+  </g>
+
+  <!-- Home Assistant card -->
+  <g filter="url(#softShadow)">
+    <rect x="40" y="2460" width="320" height="280" rx="20" fill="url(#cardGrad)" stroke="#34d399" stroke-width="2"/>
+    <g transform="translate(80 2504)">
+      <path d="M 0 4 L 24 -18 L 48 4 L 48 32 L 0 32 Z" fill="#022c22" stroke="#34d399" stroke-width="1.8"/>
+      <rect x="18" y="14" width="12" height="18" fill="#34d399"/>
+    </g>
+    <text x="148" y="2504" class="h3">Home</text>
+    <text x="148" y="2538" class="h3">Assistant</text>
+    <text x="60" y="2590" class="sub mono">192.168.88.43</text>
+    <line x1="60" y1="2602" x2="340" y2="2602" stroke="#1e293b" stroke-width="1"/>
+    <text x="60" y="2630" class="tag">· Automations</text>
+    <text x="60" y="2656" class="tag">· Smart-home hub</text>
+    <text x="60" y="2682" class="tag mono" fill="#6ee7b7">· Web UI :8123</text>
+    <text x="60" y="2716" class="tag">· Bridges to IoT VLAN</text>
+  </g>
+
+  <!-- Pi-hole secondary card -->
+  <g filter="url(#softShadow)">
+    <rect x="380" y="2460" width="320" height="280" rx="20" fill="url(#cardGrad)" stroke="#34d399" stroke-width="2"/>
+    <g transform="translate(420 2504)">
+      <path d="M 24 -18 L 48 -6 L 48 14 Q 48 30 24 38 Q 0 30 0 14 L 0 -6 Z" fill="#022c22" stroke="#34d399" stroke-width="1.8"/>
+      <circle cx="24" cy="14" r="6" fill="#34d399"/>
+      <line x1="14" y1="4" x2="34" y2="24" stroke="#022c22" stroke-width="3"/>
+    </g>
+    <text x="488" y="2504" class="h3">Pi-hole</text>
+    <text x="488" y="2540" class="sub">Secondary · RPi</text>
+    <text x="400" y="2590" class="sub mono">192.168.88.35 · raspberrypi</text>
+    <line x1="400" y1="2602" x2="680" y2="2602" stroke="#1e293b" stroke-width="1"/>
+    <text x="400" y="2630" class="tag">· DNS failover (Netwatch)</text>
+    <text x="400" y="2656" class="tag">· Gravity-sync from primary</text>
+    <text x="400" y="2682" class="tag mono" fill="#fcd34d">· Primary on docker-vm01</text>
+    <text x="400" y="2716" class="tag mono" fill="#6ee7b7">· Web UI :8080</text>
+  </g>
+
+  <!-- Zigbee coordinator card -->
+  <g filter="url(#softShadow)">
+    <rect x="720" y="2460" width="320" height="280" rx="20" fill="url(#cardGrad)" stroke="#34d399" stroke-width="2"/>
+    <!-- Zigbee glyph: antenna + concentric arcs -->
+    <g transform="translate(760 2510)">
+      <line x1="24" y1="-22" x2="24" y2="18" stroke="#34d399" stroke-width="2.5"/>
+      <circle cx="24" cy="-22" r="4" fill="#34d399"/>
+      <path d="M 6 8 Q 24 -8 42 8" stroke="#34d399" stroke-width="2" fill="none" opacity="0.85"/>
+      <path d="M -2 16 Q 24 -12 50 16" stroke="#34d399" stroke-width="2" fill="none" opacity="0.6"/>
+      <path d="M -10 24 Q 24 -16 58 24" stroke="#34d399" stroke-width="2" fill="none" opacity="0.4"/>
+    </g>
+    <text x="828" y="2504" class="h3">Zigbee</text>
+    <text x="828" y="2538" class="h3">Coord</text>
+    <text x="740" y="2590" class="sub mono">192.168.88.50 · slzb-06m</text>
+    <line x1="740" y1="2602" x2="1020" y2="2602" stroke="#1e293b" stroke-width="1"/>
+    <text x="740" y="2630" class="tag">· Bridges Zigbee → IP</text>
+    <text x="740" y="2656" class="tag">· Used by Home Assistant</text>
+    <text x="740" y="2682" class="tag">· Mesh root</text>
+  </g>
+
+  <!-- ====================== ZONE: IOT VLAN 70 (PLANNED · NOT DEPLOYED) ====================== -->
+  <ellipse cx="540" cy="2960" rx="560" ry="200" fill="url(#pinkGlow)" opacity="0.55"/>
+  <g>
+    <rect x="20" y="2790" width="1040" height="340" rx="28" fill="url(#iotZoneFill)" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="6 8" opacity="0.85"/>
+    <rect x="40" y="2768" width="640" height="48" rx="24" fill="#1f0d18" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <circle cx="68" cy="2792" r="7" fill="#f472b6" opacity="0.7"/>
+    <text x="86" y="2800" class="zoneEyebrow" fill="#f9a8d4" opacity="0.9">IoT Network · VLAN 70</text>
+    <!-- PLANNED badge -->
+    <rect x="510" y="2776" width="160" height="32" rx="16" fill="#3b1a08" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="590" y="2798" text-anchor="middle" class="zoneCidr mono" fill="#fbbf24" font-weight="700">⚠ PLANNED</text>
+    <rect x="694" y="2776" width="220" height="32" rx="16" fill="#000" stroke="#f472b6" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="804" y="2798" text-anchor="middle" class="zoneCidr mono" fill="#f9a8d4" opacity="0.85">192.168.70.0/24</text>
+
+    <!-- Status warning -->
+    <g transform="translate(40 2830)">
+      <rect x="0" y="0" width="1000" height="44" rx="22" fill="#2a1207" stroke="#fbbf24" stroke-width="1.2"/>
+      <text x="20" y="28" class="tag" fill="#fcd34d">Configs exist in apps/mikrotik/ · Not applied on RB4011 · Pending decision (ISS-260517-vlan-70-fate)</text>
+    </g>
+
+    <!-- SSID + firewall summary (planned config) -->
+    <g transform="translate(40 2880)">
+      <text x="0" y="16" class="micro" fill="#f9a8d4">Planned configuration</text>
+      <g transform="translate(0 24)">
+        <rect x="0" y="0" width="280" height="40" rx="20" fill="#1a0a14" stroke="#f472b6" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="20" y="26" class="tag mono" fill="#f9a8d4">SSID · dozernet-iot</text>
+        <rect x="296" y="0" width="380" height="40" rx="20" fill="#1a0a14" stroke="#f472b6" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="316" y="26" class="tag" fill="#f9a8d4">Block-by-default · allow-list cloud</text>
+        <rect x="692" y="0" width="308" height="40" rx="20" fill="#1a0a14" stroke="#f472b6" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="712" y="26" class="tag" fill="#f9a8d4">HA → IoT permitted</text>
+      </g>
+    </g>
+
+    <!-- Smart devices in a row of pills -->
+    <g transform="translate(40 2998)">
+      <text x="0" y="14" class="micro" fill="#f9a8d4">Smart Devices · currently on Home Network until VLAN 70 lands</text>
+      <g transform="translate(0 26)" opacity="0.85">
+        <g transform="translate(0 0)">    <rect width="190" height="50" rx="12" fill="#1a0a14" stroke="#f472b6" stroke-width="1"/>
+          <circle cx="22" cy="25" r="8" fill="none" stroke="#f472b6" stroke-width="1.8"/>
+          <text x="42" y="32" class="chiplblSm">Lights</text></g>
+        <g transform="translate(198 0)">  <rect width="190" height="50" rx="12" fill="#1a0a14" stroke="#f472b6" stroke-width="1"/>
+          <circle cx="22" cy="25" r="5" fill="#f472b6"/>
+          <circle cx="22" cy="25" r="10" fill="none" stroke="#f472b6" stroke-width="1.6" opacity="0.6"/>
+          <text x="42" y="32" class="chiplblSm">Sensors</text></g>
+        <g transform="translate(396 0)">  <rect width="190" height="50" rx="12" fill="#1a0a14" stroke="#f472b6" stroke-width="1"/>
+          <rect x="14" y="14" width="18" height="22" rx="2" fill="none" stroke="#f472b6" stroke-width="1.6"/>
+          <circle cx="23" cy="25" r="3" fill="#f472b6"/>
+          <text x="42" y="32" class="chiplblSm">Cameras</text></g>
+        <g transform="translate(594 0)">  <rect width="190" height="50" rx="12" fill="#1a0a14" stroke="#f472b6" stroke-width="1"/>
+          <rect x="14" y="14" width="18" height="22" rx="3" fill="none" stroke="#f472b6" stroke-width="1.6"/>
+          <line x1="16" y1="20" x2="30" y2="20" stroke="#f472b6" stroke-width="1.6"/>
+          <line x1="16" y1="26" x2="30" y2="26" stroke="#f472b6" stroke-width="1.6"/>
+          <text x="42" y="32" class="chiplblSm">Speakers</text></g>
+        <g transform="translate(792 0)">  <rect width="208" height="50" rx="12" fill="#1a0a14" stroke="#f472b6" stroke-width="1"/>
+          <path d="M 12 30 Q 22 16 32 30" stroke="#f472b6" stroke-width="1.8" fill="none"/>
+          <text x="42" y="32" class="chiplblSm">Zigbee / Wi-Fi</text></g>
+      </g>
+    </g>
+  </g>
+
+  <!-- ====================== NETWORK EQUIPMENT (MIKROTIK) ====================== -->
+  <ellipse cx="540" cy="3320" rx="560" ry="190" fill="url(#slateGlow)"/>
+  <g>
+    <rect x="20" y="3160" width="1040" height="340" rx="28" fill="url(#netZoneFill)" stroke="#64748b" stroke-width="1.5" stroke-dasharray="2 7"/>
+    <rect x="40" y="3138" width="640" height="48" rx="24" fill="#0f172a" stroke="#64748b" stroke-width="1.5"/>
+    <circle cx="68" cy="3162" r="7" fill="#94a3b8"/>
+    <text x="86" y="3170" class="zoneEyebrow" fill="#cbd5e1">Network Equipment · MikroTik</text>
+    <rect x="560" y="3146" width="270" height="32" rx="16" fill="#000" stroke="#64748b" stroke-width="1"/>
+    <text x="695" y="3168" text-anchor="middle" class="zoneCidr mono" fill="#cbd5e1">RouterOS · VLAN trunk</text>
+
+    <!-- Four equipment cards -->
+    <!-- RB4011 -->
+    <g transform="translate(40 3200)" filter="url(#softShadow)">
+      <rect x="0" y="0" width="244" height="280" rx="18" fill="url(#cardGrad)" stroke="#94a3b8" stroke-width="1.5"/>
+      <!-- Router glyph: chassis with 3 lights -->
+      <g transform="translate(122 50)">
+        <rect x="-50" y="-16" width="100" height="32" rx="6" fill="#0a1424" stroke="#94a3b8" stroke-width="1.5"/>
+        <circle cx="-32" cy="0" r="3.5" fill="#34d399"/>
+        <circle cx="-18" cy="0" r="3.5" fill="#34d399"/>
+        <circle cx="-4"  cy="0" r="3.5" fill="#fbbf24"/>
+        <circle cx="10"  cy="0" r="3.5" fill="#94a3b8" opacity="0.5"/>
+        <rect x="20" y="-6" width="24" height="12" fill="#0a1424" stroke="#94a3b8" stroke-width="1"/>
+      </g>
+      <text x="122" y="118" text-anchor="middle" class="h4">RB4011</text>
+      <text x="122" y="146" text-anchor="middle" class="sub">Gateway Router</text>
+      <line x1="20" y1="166" x2="224" y2="166" stroke="#1e293b" stroke-width="1"/>
+      <text x="20" y="194" class="tag mono">.88.1 / .70.1</text>
+      <text x="20" y="220" class="tag">DHCP · Firewall</text>
+      <text x="20" y="246" class="tag">PPPoE · SQM</text>
+      <text x="20" y="270" class="micro">RouterOS 7.22.2</text>
+    </g>
+    <!-- CRS310 -->
+    <g transform="translate(294 3200)" filter="url(#softShadow)">
+      <rect x="0" y="0" width="244" height="280" rx="18" fill="url(#cardGrad)" stroke="#94a3b8" stroke-width="1.5"/>
+      <!-- Switch glyph: chassis with grid of ports -->
+      <g transform="translate(122 50)">
+        <rect x="-58" y="-14" width="116" height="28" rx="5" fill="#0a1424" stroke="#94a3b8" stroke-width="1.5"/>
+        <g fill="#60a5fa">
+          <rect x="-50" y="-8" width="8" height="6"/>
+          <rect x="-38" y="-8" width="8" height="6"/>
+          <rect x="-26" y="-8" width="8" height="6"/>
+          <rect x="-14" y="-8" width="8" height="6"/>
+          <rect x="-2"  y="-8" width="8" height="6"/>
+          <rect x="10"  y="-8" width="8" height="6"/>
+          <rect x="22"  y="-8" width="8" height="6"/>
+          <rect x="34"  y="-8" width="8" height="6"/>
+        </g>
+        <g fill="#60a5fa" opacity="0.6">
+          <rect x="-50" y="2" width="8" height="6"/>
+          <rect x="-38" y="2" width="8" height="6"/>
+          <rect x="-26" y="2" width="8" height="6"/>
+          <rect x="-14" y="2" width="8" height="6"/>
+        </g>
+      </g>
+      <text x="122" y="118" text-anchor="middle" class="h4">CRS310</text>
+      <text x="122" y="146" text-anchor="middle" class="sub">Managed Switch</text>
+      <line x1="20" y1="166" x2="224" y2="166" stroke="#1e293b" stroke-width="1"/>
+      <text x="20" y="194" class="tag mono">.88.7 / .70.7</text>
+      <text x="20" y="220" class="tag">VLAN trunk</text>
+      <text x="20" y="246" class="tag">Inter-switch links</text>
+      <text x="20" y="270" class="micro">RouterOS 7.21.3</text>
+    </g>
+    <!-- hAP ax3 -->
+    <g transform="translate(548 3200)" filter="url(#softShadow)">
+      <rect x="0" y="0" width="244" height="280" rx="18" fill="url(#cardGrad)" stroke="#94a3b8" stroke-width="1.5"/>
+      <!-- AP glyph: radio arcs -->
+      <g transform="translate(122 56)">
+        <circle cx="0" cy="14" r="6" fill="#a78bfa"/>
+        <path d="M -18 6 Q 0 -8 18 6"  stroke="#a78bfa" stroke-width="2" fill="none"/>
+        <path d="M -28 -2 Q 0 -22 28 -2" stroke="#a78bfa" stroke-width="2" fill="none" opacity="0.7"/>
+        <path d="M -38 -10 Q 0 -36 38 -10" stroke="#a78bfa" stroke-width="2" fill="none" opacity="0.45"/>
+      </g>
+      <text x="122" y="118" text-anchor="middle" class="h4">hAP ax3</text>
+      <text x="122" y="146" text-anchor="middle" class="sub">WiFi AP · Front</text>
+      <line x1="20" y1="166" x2="224" y2="166" stroke="#1e293b" stroke-width="1"/>
+      <text x="20" y="194" class="tag mono">.88.9 / .70.9</text>
+      <text x="20" y="220" class="tag">Wi-Fi 6 · PoE-out</text>
+      <text x="20" y="246" class="tag">Uplink to ether10</text>
+      <text x="20" y="270" class="micro">RouterOS 7.22.1</text>
+    </g>
+    <!-- hAP ac2 -->
+    <g transform="translate(802 3200)" filter="url(#softShadow)">
+      <rect x="0" y="0" width="238" height="280" rx="18" fill="url(#cardGrad)" stroke="#94a3b8" stroke-width="1.5"/>
+      <g transform="translate(119 56)">
+        <circle cx="0" cy="14" r="6" fill="#fbbf24"/>
+        <path d="M -18 6 Q 0 -8 18 6"  stroke="#fbbf24" stroke-width="2" fill="none"/>
+        <path d="M -28 -2 Q 0 -22 28 -2" stroke="#fbbf24" stroke-width="2" fill="none" opacity="0.7"/>
+        <path d="M -38 -10 Q 0 -36 38 -10" stroke="#fbbf24" stroke-width="2" fill="none" opacity="0.45"/>
+      </g>
+      <text x="119" y="118" text-anchor="middle" class="h4">hAP ac2</text>
+      <text x="119" y="146" text-anchor="middle" class="sub">WiFi AP · Back</text>
+      <line x1="20" y1="166" x2="218" y2="166" stroke="#1e293b" stroke-width="1"/>
+      <text x="20" y="194" class="tag mono">.88.4</text>
+      <text x="20" y="220" class="tag">2.4 + 5 GHz</text>
+      <text x="20" y="246" class="tag">Garden / pool zone</text>
+      <text x="20" y="270" class="micro">RouterOS 7.21.3</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(540 3560)">
+    <text x="0" y="0" text-anchor="middle" class="micro">
+      Portrait 1080×3580 · True-black OLED · Per .claude/domains/network.yaml · Verified 2026-05-17
+    </text>
+  </g>
+</svg>
