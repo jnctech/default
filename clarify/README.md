@@ -14,6 +14,7 @@ Grounded in four widely-taught systems:
 ```
 clarify/
 ├── README.md                       ← you are here
+├── Handoff.md                      ← attach at the start of every new Copilot session
 ├── prompts/                        ← the five Copilot-in-Outlook prompts (stable)
 │   ├── 00-Setup.md                 ← one-time setup checklist
 │   ├── 01-FullCleanup.md           ← P1 — one-time backlog sweep
@@ -37,6 +38,7 @@ Why the split: `prompts/` is stable — you rarely edit it. `config/` changes we
 | `Urgent [U]` | Red | Action on me, time-critical (≤48h, P1/P2, ASAP) | Never; promote to CA on completion |
 | `Action Required [AR]` | Orange | Action on me, important but not time-critical | Never; promote to CA on completion |
 | `Completed Action [CA]` | Green | Action complete with positive evidence | Archive >14 days after receipt |
+| `Needs Review [NR]` | Yellow | Reserved for the future Power Automate Tier-A "ambiguous" branch — no-op in prompt-only mode | Never archive while NR-tagged |
 
 Everything else is archived immediately.
 
@@ -50,7 +52,8 @@ Everything else is archived immediately.
 
 Copilot in Outlook cannot bulk-apply categories or archive messages on its own. Each prompt produces **copy-pasteable subject lists**; you multi-select in Outlook and apply via right-click → **Categorize** or **Archive**.
 
-1. Open `prompts/00-Setup.md` — create the three categories in Outlook.
+1. Open `prompts/00-Setup.md` — create the four categories in Outlook, disable Focused Inbox, build the NR Search Folder and Quick Steps, record the live Copilot model.
 2. Open `config/sender-lists.md` — paste in your real senders.
 3. Open `config/Status-Source-Registry.md` — paste in real URLs / IDs.
-4. Run `prompts/01-FullCleanup.md` against your live inbox.
+4. Open `Handoff.md` — fill the standing-context section once; the rolling-state section gets a 30-second update at the end of every Copilot session.
+5. Attach `Handoff.md` to the Copilot pane and run `prompts/01-FullCleanup.md` against your live inbox.
