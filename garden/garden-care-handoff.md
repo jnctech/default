@@ -1,41 +1,66 @@
 # Handoff: Maidenhair fern care + PM4 dashboard
 
+**For:** an MCP-connected agent (Home Assistant MCP + GitHub access to the real repos).
 **Intended home:** `jnctech/garden-care` (repo not yet created).
-**Why this is a handoff, not a finished job — two blockers in the session that produced it:**
 
-1. **GitHub access was scoped to `jnctech/default` only.** The `homeassistant-backup`
-   repo (which holds the established dashboard standards) and the target
-   `jnctech/garden-care` repo could not be read or written. The dashboard below is a
-   **DRAFT** that MUST be reconciled against the real conventions in
-   `homeassistant-backup` before use.
-2. **No Home Assistant MCP server was connected.** PM4's real entity IDs and live
-   readings could not be retrieved, so all moisture *numbers* here are uncalibrated
-   placeholders. See "PM4 calibration" — they must be set from real data.
+This brief was written in a session that could **not** reach Home Assistant (no HA MCP)
+and was GitHub-scoped to `jnctech/default` only (could not read `homeassistant-backup` or
+write `garden-care`). PM4 entities and live values below were supplied by the user.
 
-## To continue, the next session needs
+## Tasks for the connected agent
 
-- [ ] HA MCP server connected (or PM4 entity IDs + a few readings pasted).
-- [ ] Read access to `homeassistant-backup` to copy the dashboard standard.
-- [ ] Confirmation of the actual PM4 entity IDs (soil moisture, soil temp, battery,
-      and any light/conductivity channels the Zigbee device exposes).
+1. **Use the device's native dry alarm.** PM4 exposes `binary_sensor.plant_monitor_4_dry`,
+   which trips when soil moisture falls below the writable threshold
+   `number.plant_monitor_4_soil_warning` (currently **20**). For this fern, **set
+   soil_warning to ~45** (≈40% was already too dry — see data) and drive the notification
+   off the binary_sensor rather than a hand-rolled numeric trigger.
+2. **Read the dashboard standard** in `homeassistant-backup` and rebuild the DRAFT dashboard
+   below to match its conventions (card types, naming, theme, sections).
+3. **Scaffold `jnctech/garden-care`** and move this note + the finished dashboard/automation
+   into it.
+4. Optionally confirm provisional thresholds with one clean calibration cycle (below).
 
----
+## PM4 entities (confirmed)
+
+| Entity ID | Name | Value | Use |
+|---|---|---|---|
+| `sensor.plant_monitor_4_soil_moisture` | Moisture | 100% | primary signal; freshly-watered baseline |
+| `sensor.plant_monitor_4_temperature` | Temperature | 16.9°C | cool (see care notes) |
+| `sensor.plant_monitor_4_humidity` | Humidity | 93% | **ambient RH** — directly tracks the humidity care need (target >50%) |
+| `sensor.plant_monitor_4_battery` | Battery | 100% | low-battery alert candidate |
+| `binary_sensor.plant_monitor_4_dry` | Dry | off | **device dry-alarm**; trips when soil < soil_warning |
+| `number.plant_monitor_4_soil_warning` | Soil warning | 20 → **set ~45** | dry-alarm threshold (%) |
+| `number.plant_monitor_4_soil_calibration` | Soil calibration | 0 | offset, leave 0 unless calibrating |
+| `number.plant_monitor_4_soil_sampling` | Soil sampling | 30 | sampling interval |
+| `number.plant_monitor_4_humidity_calibration` | Humidity calibration | 0 | |
+| `number.plant_monitor_4_temperature_calibration` | Temp calibration | 0 | |
+| `number.plant_monitor_4_temperature_sampling` | Temp sampling | 30 | |
+| `select.plant_monitor_4_temperature_unit` | Temp unit | celsius | |
+
+## Live PM4 data (user, 2026-05-24 ~20:45)
+
+| Reading | Value | Interpretation |
+|---|---|---|
+| Soil moisture, freshly watered | ~100% | top of band / "just watered" baseline |
+| Soil moisture, prior standing (19:00–20:15, flat) | ~39–40% | level the soil held **while the fern was drought-crisping** → for this probe, **~40% = already too dry** |
+| Soil moisture 20:25–20:40 swings (0↔100%) | artifact | probe pulled/reinserted + watering during the photo session — **ignore** |
+| Ambient humidity | 93% | currently good (>50%); confirm it holds, not just a post-watering spike |
+| Temperature | 16.9°C (range 16.3–17.7°C) | **cool** — below the 18–24°C ideal (safe, above ~10°C tender floor); expect slow growth |
+| Battery | 100% | fine |
 
 ## Plant profile
 
 - **Species:** Maidenhair fern, *Adiantum fragrans* (Swan Reach Nursery; tender
   Delta-maidenhair group, related to *A. raddianum*). Indoor/patio, full-shade.
-- **Location:** Indoors, low light.
-- **History:** Discount-bin runt. Alive and pushing new fronds; recoverable.
-- **Sensor:** Zigbee soil monitor labelled **PM4** / "Plant Monitor 4" in Home Assistant.
+- **Location:** Indoors, low light. **History:** discount-bin runt; alive and pushing new
+  fronds — recoverable.
 
-## Diagnosis (from intake photos, 2026-05-24)
+## Diagnosis (intake photos, same date)
 
-- Extensive **brown, crispy, curled fronds** — consistent with drying-out / low-humidity
-  damage. These will not re-green; trim them. (See sourced fact: fronds die back quickly
-  once soil is allowed to dry out.)
-- Healthy **new green growth at the crown** — good prognosis if moisture + humidity
-  become consistent.
+- Extensive **brown, crispy, curled fronds** — drying-out / low-humidity damage; will not
+  re-green, trim them.
+- Healthy **new green growth at the crown** — good prognosis with consistent moisture +
+  humidity.
 - Crown dense, likely slightly root-bound (normal for a runt). Plastic nursery pot.
 
 ## Audited care facts (sourced)
@@ -46,11 +71,11 @@ Verified against Missouri Botanical Garden (Plant Finder) and RHS for *Adiantum*
 |---|---|
 | **Light** | Bright, *indirect* light; **leaves scorch in direct sun.** |
 | **Water** | Water freely; **"fronds will die back quickly if soils are allowed to dry out."** Water sparingly in winter. |
-| **Humidity** | Provide **high humidity** — stand the pot on a tray of moist gravel/pebbles. |
+| **Humidity** | Provide **high humidity** — pebble tray; PM4 humidity sensor lets you track it directly. |
 | **Feeding** | **Half-strength** general liquid feed, **monthly, mid-spring to late summer.** |
-| **Temperature** | Frost-tender (Delta-maidenhair group). Keep indoors, ~18–24°C; avoid cold draughts and the hot, dry air of heater/AC vents. Keep above ~10°C. *(horticultural consensus, not from the two sources above)* |
+| **Temperature** | Frost-tender. Keep ~18–24°C; current 16–17°C is cool. Avoid cold draughts and hot/dry heater/AC air. Keep above ~10°C. *(horticultural consensus, not the two sources above)* |
 
-This matches the nursery label: "moist but not wet", "feed during growing season",
+Matches the nursery label: "moist but not wet", "feed during growing season",
 "slow-release or half-strength liquid", "full shade / indoors well-lit".
 
 **Sources:**
@@ -61,65 +86,81 @@ This matches the nursery label: "moist but not wet", "feed during growing season
 
 ## Action plan / rehab (first 4–6 weeks)
 
-- [ ] Trim all dead/crispy fronds at the base with clean scissors (energy → new growth).
-- [ ] Move to a brighter (still indirect) and more humid spot — bathroom/kitchen, or add
-      a pebble tray / small humidifier nearby.
-- [ ] Keep soil evenly moist at all times — never dry, never waterlogged. Bottom-watering
-      (stand pot in water ~10 min, then drain fully) wets the root ball evenly.
-- [ ] Hold off feeding until new growth appears, then half-strength liquid, monthly,
-      through summer.
-- [ ] Do **not** repot until visibly thriving; then up one pot size in a peat/coir-rich,
+- [ ] Trim all dead/crispy fronds at the base with clean scissors.
+- [ ] Move to a brighter (still indirect), humid, slightly **warmer** spot; add a pebble
+      tray / small humidifier; watch `sensor.plant_monitor_4_humidity` stays >50%.
+- [ ] Keep soil evenly moist — never dry, never waterlogged. Bottom-water (stand pot in
+      water ~10 min, drain fully) for even wetting.
+- [ ] Hold off feeding until new growth appears, then half-strength liquid, monthly, summer.
+- [ ] Don't repot until visibly thriving; then up one pot size in peat/coir-rich,
       free-draining mix.
 
-## PM4 calibration (do this before trusting any threshold)
+## PM4 thresholds & calibration
 
-Capacitive soil sensors are not comparable across devices; a "%" only means something
-relative to *this* sensor in *this* mix. Establish the band from real data:
+Capacitive "%" is only meaningful for this probe/mix. From the live data:
 
-1. Water thoroughly, let it drain ~30 min, record PM4 % → this is the **"freshly watered"**
-   top of the band.
-2. Over the following days, finger-test the top 2–3 cm daily and record the PM4 % at the
-   point the soil first feels *barely* dry to the touch → this is the **"water now"** floor.
-   (For maidenhair, act *before* it gets properly dry — they don't forgive a full dry-out.)
-3. Target band = floor → freshly-watered. Set the low alert slightly above the floor.
+- **Freshly watered (observed):** ~100%.
+- **Too-dry floor (observed, plant was damaged there):** ~40%.
+- **Set `number.plant_monitor_4_soil_warning` = ~45** so the native dry alarm trips
+  *before* the 40% point that crisped it. Healthy target band ≈ **55–90%**; brief 100%
+  after watering is fine — only *sustained* saturation is a rot risk (this species likes
+  it moist).
 
-Until calibrated, treat the auditable rule as primary: **keep evenly moist, never dry,
-never waterlogged.** Numbers are convenience, not gospel.
+Optional confirmation cycle: water → drain 30 min → record % (wet baseline); record the %
+when the top 2–3 cm *first* feels barely dry (dry floor); set soil_warning just above that.
 
-## DRAFT dashboard (reconcile with `homeassistant-backup` standards before use)
+## DRAFT dashboard (rebuild to `homeassistant-backup` standards before use)
 
-Placeholder Lovelace card. **Replace entity IDs with the real PM4 IDs**, and re-style to
-match the established dashboard conventions in `homeassistant-backup` (naming, card types,
-theme, sections) — this draft does not yet follow them because that repo was unreadable.
+Entities are confirmed; restyle to the established conventions — this draft does not follow
+them yet.
 
 ```yaml
-# DRAFT — verify entity_ids in Developer Tools > States ("plant_monitor_4" / "PM4")
 type: vertical-stack
 title: Maidenhair Fern (PM4)
 cards:
   - type: gauge
     name: Soil moisture
-    entity: sensor.plant_monitor_4_soil_moisture   # TODO confirm
+    entity: sensor.plant_monitor_4_soil_moisture
     min: 0
     max: 100
-    # severity bands below are PLACEHOLDERS — set from PM4 calibration
-    severity:
-      red: 0      # too dry — water now
-      yellow: 40  # getting dry
-      green: 55   # in band
-  - type: entities
-    title: PM4 detail
+    severity:           # aligned to soil_warning=45
+      red: 0
+      yellow: 45
+      green: 55
+  - type: glance
     entities:
-      - entity: sensor.plant_monitor_4_soil_moisture   # TODO confirm
-      - entity: sensor.plant_monitor_4_soil_temperature # TODO confirm / may not exist
-      - entity: sensor.plant_monitor_4_battery          # TODO confirm
+      - entity: sensor.plant_monitor_4_humidity
+        name: Air RH
+      - entity: sensor.plant_monitor_4_temperature
+        name: Temp
+      - entity: binary_sensor.plant_monitor_4_dry
+        name: Dry?
+      - entity: sensor.plant_monitor_4_battery
+        name: Battery
   - type: history-graph
-    title: Moisture (7 days)
+    title: Moisture / RH / temp (7 days)
     hours_to_show: 168
     entities:
-      - entity: sensor.plant_monitor_4_soil_moisture   # TODO confirm
+      - sensor.plant_monitor_4_soil_moisture
+      - sensor.plant_monitor_4_humidity
+      - sensor.plant_monitor_4_temperature
 ```
 
-A low-moisture **alert automation** was also drafted but pulled from this note: it
-depends on the verified entity ID and a target notify service, and belongs alongside the
-dashboard once PM4 is readable. Recreate it then.
+Dry alert automation — trigger off the device's own dry binary_sensor (set soil_warning
+first), pick a real notify target:
+
+```yaml
+alias: "Maidenhair Fern - soil dry (water now)"
+trigger:
+  - platform: state
+    entity_id: binary_sensor.plant_monitor_4_dry
+    to: "on"
+    for: { minutes: 30 }     # de-bounce probe noise
+action:
+  - service: notify.notify
+    data:
+      title: "Maidenhair Fern needs water"
+      message: >
+        PM4 reports dry (soil {{ states('sensor.plant_monitor_4_soil_moisture') }}%). Water now.
+mode: single
+```
