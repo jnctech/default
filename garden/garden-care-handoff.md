@@ -52,8 +52,24 @@ write `garden-care`). PM4 entities and live values below were supplied by the us
 
 - **Species:** Maidenhair fern, *Adiantum fragrans* (Swan Reach Nursery; tender
   Delta-maidenhair group, related to *A. raddianum*). Indoor/patio, full-shade.
-- **Location:** Indoors, low light. **History:** discount-bin runt; alive and pushing new
-  fronds — recoverable.
+- **Location:** **Living room**, indoors, low light. **History:** discount-bin runt; alive
+  and pushing new fronds — recoverable.
+
+## Related room sensor (not PM4)
+
+| Entity ID (verify) | Name | Value | Use |
+|---|---|---|---|
+| `sensor.living_room_presence_illuminance` | Living Room Presence Illuminance | 1 lx (evening) | room-light **trend proxy** |
+
+**Caveat:** this is a presence sensor's ambient reading (wall/ceiling), **not** the light
+at the plant — use it for trend/seasonality, not as a plant-level lux figure.
+
+Observed (Feb–May history): daily peaks mostly ~50–150 lx, occasional 300–560 lx; the room
+**brightened into April then declined through May** (late autumn → winter, South Australia).
+Implication: the spot is genuinely dim, and gets dimmer over winter. *Adiantum* tolerates
+shade so it survives, but for a recovering runt, move it nearer a window (still **no direct
+sun**) for brighter indirect light; consider a small grow light if the trend keeps dropping.
+Winter also means **water more sparingly and stop feeding** (per sourced guidance below).
 
 ## Diagnosis (intake photos, same date)
 
@@ -87,8 +103,10 @@ Matches the nursery label: "moist but not wet", "feed during growing season",
 ## Action plan / rehab (first 4–6 weeks)
 
 - [ ] Trim all dead/crispy fronds at the base with clean scissors.
-- [ ] Move to a brighter (still indirect), humid, slightly **warmer** spot; add a pebble
-      tray / small humidifier; watch `sensor.plant_monitor_4_humidity` stays >50%.
+- [ ] Move to a brighter (still indirect — **no direct sun**), humid, slightly **warmer**
+      spot — nearer a living-room window; add a pebble tray / small humidifier; watch
+      `sensor.plant_monitor_4_humidity` stays >50%. Consider a small grow light over winter
+      as room illuminance declines.
 - [ ] Keep soil evenly moist — never dry, never waterlogged. Bottom-water (stand pot in
       water ~10 min, drain fully) for even wetting.
 - [ ] Hold off feeding until new growth appears, then half-strength liquid, monthly, summer.
@@ -144,6 +162,7 @@ cards:
       - sensor.plant_monitor_4_soil_moisture
       - sensor.plant_monitor_4_humidity
       - sensor.plant_monitor_4_temperature
+      - sensor.living_room_presence_illuminance   # room-light trend (verify id)
 ```
 
 Dry alert automation — trigger off the device's own dry binary_sensor (set soil_warning
